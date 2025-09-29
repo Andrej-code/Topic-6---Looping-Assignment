@@ -8,37 +8,60 @@
 
         int min;
         int max;
+        int guess;
+        int answer;
+        bool done = false;
+        bool vaildInput = false;
+               
+        Random generator = new Random();
 
 
-         Console.WriteLine("Enter in a minimum:");
+            
+                Console.WriteLine("Enter in a minimum:");
 
-          
-            while (!Int32.TryParse(Console.ReadLine(), out min))
+
+                while (!Int32.TryParse(Console.ReadLine(), out min))
+                {
+                    Console.WriteLine("Invaild input, try again.");
+                }
+
+                Console.WriteLine();
+
+                Console.WriteLine("Enter in a maximum: ");
+
+                while (!Int32.TryParse(Console.ReadLine(), out max))
+                {
+                    Console.WriteLine("Invaild input, try again.");
+                }
+
+                Console.WriteLine();
+
+                if (min < max)
+                {
+                    vaildInput = true;
+                }
+            while (!done)
             {
-                Console.WriteLine("Invaild input, try again.");
+                Console.WriteLine("Enter a number between " + min + " and " + max);
+
+                Console.WriteLine();
+
+                while (int.TryParse(Console.ReadLine(), out guess))
+                {
+
+
+                    if (guess > min && guess < max)
+                    {
+                        Console.WriteLine("You guessed the number " + guess);
+                        done = true;
+                    }
+
+
+                }
+
+
             }
 
-        Console.WriteLine();
-
-        Console.WriteLine("Enter in a maximum: ");
-
-            while (!Int32.TryParse(Console.ReadLine(), out max))
-            {
-                Console.WriteLine("Invaild input, try again.");
-            }
-         
-         Console.WriteLine();
-
-         Console.WriteLine("Range from "+ min + " and " + max);
-          
-
-            // How could I make the user enter a number that's in between the min and max number?
-            // That's in a loop?
-
-            //if ()
-            //{
-
-            //}
 
         }
     }
