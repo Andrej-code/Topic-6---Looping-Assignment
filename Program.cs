@@ -108,7 +108,7 @@ namespace Topic_6___Looping_Assignment
                         Console.WriteLine("Enter how much money you're withdrawal.");
                     }
 
-                    if (withDrawal > 0 || withDrawal > accBalance)
+                    if (withDrawal > 0 && withDrawal > accBalance)
                     {
                         Console.WriteLine("Invalid input.");
                     }
