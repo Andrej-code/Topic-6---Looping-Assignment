@@ -80,7 +80,7 @@ namespace Topic_6___Looping_Assignment
                 Console.WriteLine();
                 Console.WriteLine("1 - Deposit");
                 Console.WriteLine("2 - Withdrawal");
-                Console.WriteLine("3 - Bull Payment");
+                Console.WriteLine("3 - Bill Payment");
                 Console.WriteLine("4 - Account Balance");
                 Console.WriteLine(".................");
                 Console.WriteLine("Q - Quit");
@@ -92,74 +92,65 @@ namespace Topic_6___Looping_Assignment
                 {
                     Console.WriteLine("Enter an amount of money to deposit.");
 
+                    Console.WriteLine();
+
                     while (!double.TryParse(Console.ReadLine(), out deposit))
                     {
                         Console.WriteLine("Enter an amount of money to deposit.");
+
+                        Console.WriteLine();
                     }
-                    Console.WriteLine("You have $" + (deposit + accBalance - fee) + " left in your balance.");
+                    Console.WriteLine("You have $ " + (deposit + accBalance - fee) + " left in your balance.");
+                   
                     Console.WriteLine();
                 }
                 else if (choice == "2")
                 {
                     Console.WriteLine("Enter how much money you're withdrawal.");
 
+                    Console.WriteLine();
+
                     while (!double.TryParse(Console.ReadLine(), out withDrawal))
                     {
                         Console.WriteLine("Enter how much money you're withdrawal.");
+
+                        Console.WriteLine();
                     }
 
-                    if (withDrawal > 0 && withDrawal > accBalance)
+                    if (withDrawal < 0)
                     {
                         Console.WriteLine("Invalid input.");
+
                     }
-                 Console.WriteLine("You've withdrawaled $" + (accBalance - withDrawal - fee) + " from your balance.");
+
+                 Console.WriteLine("You've withdrawaled $ " + (accBalance - withDrawal - fee) + " from your balance.");
+                 
+                 Console.WriteLine();
 
                 }
-                //else if (choice == "3")
-                //{
+                else if (choice == "3")
+                {
 
-                //}
-                //else if (choice == "4") 
-                //{
+                    Console.WriteLine("The total cost of the bill payment is $"+ (accBalance - fee));
+                    Console.WriteLine();
 
-                //}
+                }
+                else if (choice == "4")
+                {
+
+                    Console.WriteLine("Your account balance is $ " + accBalance);
+                    Console.WriteLine();
+
+                }
                 else
                 {
-                    Console.WriteLine("Invalid choice, press ENTER to continue.");
-                    Console.ReadLine();
-                
+                   choice = "q";
+                   Console.WriteLine("Thank you for using the Bank of Blorb, have a nice day!");
+
                 }
-
-
-
-
-
-
-
-
-
 
 
             }
-
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         }
