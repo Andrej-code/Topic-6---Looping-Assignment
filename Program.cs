@@ -1,6 +1,7 @@
-﻿using System.Runtime.InteropServices;
+﻿using Die_Class;
+using System;
+using System.Runtime.InteropServices;
 using System.Xml.Serialization;
-using Die_Class;
 
 namespace Topic_6___Looping_Assignment
 {
@@ -21,53 +22,54 @@ namespace Topic_6___Looping_Assignment
 
 
 
-            //        Console.WriteLine("Enter in a minimum:");
+            //Console.WriteLine("Enter in a minimum:");
 
 
-            //        while (!Int32.TryParse(Console.ReadLine(), out min))
-            //        {
-            //            Console.WriteLine("Invaild input, try again.");
-            //        }
+            //while (!Int32.TryParse(Console.ReadLine(), out min))
+            //{
+            //    Console.WriteLine("Invaild input, try again.");
+            //}
 
-            //        Console.WriteLine();
+            //Console.WriteLine();
 
-            //        Console.WriteLine("Enter in a maximum: ");
+            //Console.WriteLine("Enter in a maximum: ");
 
-            //        while (!Int32.TryParse(Console.ReadLine(), out max))
-            //        {
-            //            Console.WriteLine("Invaild input, try again.");
-            //        }
+            //while (!Int32.TryParse(Console.ReadLine(), out max))
+            //{
+            //    Console.WriteLine("Invaild input, try again.");
+            //}
 
-            //        Console.WriteLine();
+            //Console.WriteLine();
 
-            //        if (min < max)
-            //        {
-            //            vaildInput = true;
-            //        }
-            //    while (!done)
+            //if (min < max)
+            //{
+            //    vaildInput = true;
+            //}
+            //while (!done)
+            //{
+            //    Console.WriteLine("Enter a number between " + min + " and " + max);
+
+            //    Console.WriteLine();
+
+            //    while (int.TryParse(Console.ReadLine(), out guess))
             //    {
-            //        Console.WriteLine("Enter a number between " + min + " and " + max);
 
-            //        Console.WriteLine();
 
-            //        while (int.TryParse(Console.ReadLine(), out guess))
+            //        if (guess > min && guess < max)
             //        {
-
-
-            //            if (guess > min && guess < max)
-            //            {
-            //                Console.WriteLine("You guessed the number " + guess);
-            //                done = true;
-            //            }
-
-
+            //            Console.WriteLine("You guessed the number " + guess);
+            //            done = true;
             //        }
 
 
             //    }
 
 
+            //}
+
+
             // #2 - Simple Banking Machine
+
             //string choice = "";
             //double accBalance = 150;
             //double deposit;
@@ -122,17 +124,17 @@ namespace Topic_6___Looping_Assignment
             //        if (withDrawal < 0)
             //        {
             //            Console.WriteLine("Invalid input.");
-            //         }
+            //        }
 
-            //     Console.WriteLine("You've withdrawaled $ " + (accBalance - withDrawal - fee) + " from your balance.");
+            //        Console.WriteLine("You've withdrawaled $ " + (accBalance - withDrawal - fee) + " from your balance.");
 
-            //     Console.WriteLine();
+            //        Console.WriteLine();
 
             //    }
             //    else if (choice == "3")
             //    {
 
-            //        Console.WriteLine("The total cost of the bill payment is $"+ (accBalance - fee));
+            //        Console.WriteLine("The total cost of the bill payment is $" + (accBalance - fee));
             //        Console.WriteLine();
 
             //    }
@@ -145,8 +147,8 @@ namespace Topic_6___Looping_Assignment
             //    }
             //    else
             //    {
-            //       choice = "q";
-            //       Console.WriteLine("Thank you for using the Bank of Blorb, have a nice day!");
+            //        choice = "q";
+            //        Console.WriteLine("Thank you for using the Bank of Blorb, have a nice day!");
 
             //    }
 
@@ -156,6 +158,8 @@ namespace Topic_6___Looping_Assignment
             // #3 - Double Roller
 
             Die die1, die2;
+
+            int rollCount = 0;
 
             bool done = false;
 
@@ -172,25 +176,37 @@ namespace Topic_6___Looping_Assignment
 
             Console.WriteLine();
 
-            if (die1.Roll == die2.Roll)
-            {
-                Console.WriteLine("You rolled Doubles.");
-            }
-
-            Console.WriteLine();
-
-            Console.WriteLine("Press ENTER to continue rolling the dice.");
 
             while (!done)
             {
+                die1 = new Die();
+                die2 = new Die(ConsoleColor.DarkRed);
+
+                rollCount ++;
+
+                Console.WriteLine("Die 1 is a " + die1);
+                die1.DrawRoll();
+
+                Console.WriteLine();
+
+                Console.WriteLine("Die 2 is a " + die2);
+                die2.DrawRoll();
+
+                Console.WriteLine();
 
                 if (die1.Roll == die2.Roll)
                 {
                     Console.WriteLine("You rolled Doubles.");
                     done = true;
                 }
+
+                Console.WriteLine();
+
             }
-  
+
+            Console.WriteLine("You have rolled " + rollCount + " times to get doubles.");
+
+
 
         }
     }
